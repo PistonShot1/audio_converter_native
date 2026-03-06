@@ -137,8 +137,8 @@ class AudioConverterNativePlugin : FlutterPlugin, MethodCallHandler {
             val file = File(filePath)
             if (!file.exists()) {
                 result.success(mapOf<String, Any>(
-                    "success" to false,
-                    "error" to "Arquivo não encontrado: $filePath"
+                    "success" to (false as Any),
+                    "error" to ("Arquivo não encontrado: $filePath" as Any)
                 ))
                 return
             }
@@ -160,8 +160,8 @@ class AudioConverterNativePlugin : FlutterPlugin, MethodCallHandler {
         } catch (e: Exception) {
             Log.e(TAG, "Erro ao obter informações do arquivo", e)
             result.success(mapOf<String, Any>(
-                "success" to false,
-                "error" to e.message ?: "Erro desconhecido"
+                    "success" to (false as Any),
+                    "error" to (e.message ?: "Erro desconhecido") as Any
             ))
         }
     }
